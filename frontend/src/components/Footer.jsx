@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className="text-black py-4 pt-8 border-t">
             <div className="container mx-auto lg:flex justify-between items-center text-center lg:text-left">
                 <div className='mb-8 lg:mb-0'>
-                    <h2 className="text-xl font-bold">UrbanKicks</h2>
+                    <h2 className="text-xl font-bold">Shoezy</h2>
                     <p className="text-sm">Providing quality since 2024</p>
                 </div>
                 <div className='grid grid-cols-2 gap-8 md:flex justify-evenly lg:justify-between lg:w-2/3'>
@@ -48,7 +48,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="text-center m-4 mt-16">
-                <p>&copy; {new Date().getFullYear()} UrbanKicks. All Rights Reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Shoezy. All Rights Reserved.</p>
             </div>
         </footer>
     );

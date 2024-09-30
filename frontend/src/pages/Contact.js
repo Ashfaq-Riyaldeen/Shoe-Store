@@ -58,10 +58,11 @@ const Contact = () => {
                 <div className="flex-1 flex justify-center items-center">
                     <div className='rounded-3xl max-h-[90%] max-w-[90%] overflow-hidden'>
                         <img
-                            src='https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                            src='<img src="https://assets.adidas.com/images/w_1880,f_auto,q_auto/ef3d527ee78745478a9231e07d83f2e7_9366/JI1281_02_standard_hover.jpg">'
                             alt=''
                             className='rounded-xl shadow-2xl shadow-gray-300'
                         />
+
                     </div>
                 </div>
             </div>

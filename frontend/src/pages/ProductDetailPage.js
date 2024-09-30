@@ -99,7 +99,7 @@ const ProductDetailPage = () => {
                         <div className="w-11/12 lg:w-1/2 pl-8 flex flex-col justify-center">
                             <h1 className="text-3xl font-bold mb-4">{productDetails.name}</h1>
                             <p className="text-gray-600 mb-4">{productDetails.description}</p>
-                            <p className="text-2xl font-bold text-orange-500">₹{productDetails.price}</p>
+                            <p className="text-2xl font-bold text-orange-500">Rs {productDetails.price}</p>
                             {productDetails.quantity < 4 ? (
                                 <p className="text-red-500">Hurry Up! Only few left in stock.</p>)
                                 : (

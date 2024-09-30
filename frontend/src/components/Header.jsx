@@ -6,7 +6,6 @@ import Tooltip from '@mui/material/Tooltip';
 
 const Header = ( { toShow = true } ) => {
     const { state } = useAuth();
-    const { isDarkTheme, toggleTheme } = useThemeContext();
     const { user, logout } = useAuth();
     const [showConfirmation, setShowConfirmation] = useState(false);
 
@@ -50,7 +49,7 @@ const Header = ( { toShow = true } ) => {
 
     return (
         <header className="bg-white text-black p-4 px-8 flex items-center justify-between border-b">
-            <a href="/"><h1 className="text-2xl md:text-4xl font-semibold">UrbanKicks</h1></a>
+            <a href="/"><h1 className="text-2xl md:text-4xl font-semibold">Shoezy</h1></a>
 
             <div className='hidden md:flex items-center space-x-4'>
                 <div className='cursor-pointer'>
@@ -62,16 +61,7 @@ const Header = ( { toShow = true } ) => {
             </div>
 
             <div className='flex items-center space-x-4'>
-                <div className='hidden sm:block'>
-                    <Tooltip title='Switch Theme'>
-                        <button
-                            className='cursor-pointer bg-gray-300 p-2 rounded-full'
-                            onClick={toggleTheme}
-                        >
-                            {isDarkTheme ? '☀️' : '🌙'}
-                        </button>
-                    </Tooltip>
-                </div>
+               
                 <div>
                     <Tooltip title='Visit Cart'>
                         <a href="/cart">

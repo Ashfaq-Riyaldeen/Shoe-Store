@@ -84,7 +84,7 @@ const Cart = () => {
                                 className="bg-green-500 text-white py-2 px-4 rounded-full hover:bg-green-600 focus:outline-none"
                             >
                                 Checkout
-                                <p className="font-bold inline">: ₹ {calculateTotal().toLocaleString('en-IN', { maximumFractionDigits: 2 })}</p>
+                                <p className="font-bold inline">: Rs {calculateTotal().toLocaleString('en-IN', { maximumFractionDigits: 2 })}</p>
                             </button>
                             <button
                                 onClick={clearCart}

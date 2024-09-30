@@ -21,6 +21,9 @@ import AdminPage from './pages/AdminPage';
 import AddProduct from './pages/AddProduct';
 import AddReviewPage from './pages/AddReviewPage';
 import ManageOrders from './pages/ManageOrders';
+// i need to import the about us page
+import AboutUs from './pages/AboutUs';
+
 
 function App() {
 	return (
@@ -34,6 +37,7 @@ function App() {
 				<Route path="/product/:productId" element={<ProductDetailPage />} />
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/review/createNew" element={<AddReviewPage />} />
+				<Route path="/about" element={<AboutUs />} />
 				
 				{/* Authenticated Admin Control routes */}
 				<Route path="/admin/dashboard" element={<AuthMiddleware element={<AdminPage />} />} />

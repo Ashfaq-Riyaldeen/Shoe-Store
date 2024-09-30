@@ -68,7 +68,7 @@ const CartItemCard = ({ item, cartItems, setCartItems, userId }) => {
                     </div>
                 </div>
                 <div className="flex items-center">
-                    <p>₹{(item.price * item.quantity).toLocaleString('en-IN', { maximumFractionDigits: 2 })}</p>
+                    <p>Rs {(item.price * item.quantity).toLocaleString('en-IN', { maximumFractionDigits: 2 })}</p>
                     <Tooltip title="Delete Item">
                         <IconButton
                             onClick={() => handleRemoveItem(item.product.id)}
