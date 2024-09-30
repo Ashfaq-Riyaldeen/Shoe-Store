@@ -35,7 +35,9 @@ const CategoryPage = () => {
                     <div className="flex flex-wrap justify-around m-auto my-16 w-[75%]">
                         {categoryProducts.length > 0 ? (
                             categoryProducts.map((product) => (
+                                <div className='myProductCard border border-white hover:border-gray-200 m-2'>
                                 <Card key={product._id} item={product} />
+                                </div>
                             ))
                         ) : (
                             <div className='flex items-center text-center justify-center flex-col min-h-[44vh]'>
