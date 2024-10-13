@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
-import { useThemeContext } from '../Context/themeContext';
 import Tooltip from '@mui/material/Tooltip';
 
 const Header = ( { toShow = true } ) => {
@@ -28,7 +27,7 @@ const Header = ( { toShow = true } ) => {
             // User is authenticated, show Logout button
             return (
                 <a href="/">
-                    <div className='cursor-pointer bg-gray-300 p-2 rounded-full' onClick={logout}>
+                    <div className='cursor-pointer bg-white  p-2 rounded-full' onClick={logout}>
                         <span className='hidden sm:inline'>👋 </span>
                         <span role="img" aria-label="Logout">Logout</span>
                     </div>
@@ -38,7 +37,7 @@ const Header = ( { toShow = true } ) => {
             // User is not authenticated, show Login button
             return (
                 <a href="/login">
-                    <div className='cursor-pointer bg-gray-300 p-2 rounded-full'>
+                    <div className='cursor-pointer bg-white  p-2 rounded-full'>
                         <span className='hidden sm:inline'>👤 </span>
                         <span role="img" aria-label="Login">Login</span>
                     </div>
@@ -48,7 +47,7 @@ const Header = ( { toShow = true } ) => {
     };
 
     return (
-        <header className="bg-white text-black p-4 px-8 flex items-center justify-between border-b">
+        <header className="bg-gray-300 text-black p-4 px-8 flex items-center justify-between border-b">
             <a href="/"><h1 className="text-2xl md:text-4xl font-semibold">Shoezy</h1></a>
 
             <div className='hidden md:flex items-center space-x-4'>
@@ -65,7 +64,7 @@ const Header = ( { toShow = true } ) => {
                 <div>
                     <Tooltip title='Visit Cart'>
                         <a href="/cart">
-                            <div className='cursor-pointer bg-gray-300 p-2 rounded-full'>
+                            <div className='cursor-pointer bg-white  p-2 rounded-full'>
                                 <span role="img" aria-label="Cart">🛒</span>
                             </div>
                         </a>
@@ -74,7 +73,7 @@ const Header = ( { toShow = true } ) => {
                 <div>
                     <Tooltip title='Check Account'>
                         <a href="/myaccount">
-                            <div className='cursor-pointer bg-gray-300 p-2 rounded-full'>
+                            <div className='cursor-pointer bg-white p-2 rounded-full'>
                                 <span role="img" aria-label="myAccount">👤</span>
                             </div>
                         </a>
