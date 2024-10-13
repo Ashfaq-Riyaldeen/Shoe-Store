@@ -66,6 +66,7 @@ const addItemToCart = async (req, res) => {
     }
 };
 
+
 // Remove item from cart
 const removeItemFromCart = async (req, res) => {
     try {
@@ -92,6 +93,7 @@ const removeItemFromCart = async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 };
+
 
 // Update item in cart
 const updateItemInCart = async (req, res) => {

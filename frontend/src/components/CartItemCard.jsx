@@ -9,8 +9,11 @@ const CartItemCard = ({ item, cartItems, setCartItems, userId }) => {
     
     const handleRemoveItem = async (itemId) => {
         try {
+            // Ensure the API call works correctly.
             await cartApi.removeItemFromCart(userId, itemId);
-            setCartItems(prevCartItems => prevCartItems.filter(item => item._id !== itemId));
+            
+            // Update the cart items state, filtering out the removed item.
+            setCartItems(prevCartItems => prevCartItems.filter(item => item.product.id !== itemId));
         } catch (error) {
             console.error('Error removing item from cart:', error);
         }

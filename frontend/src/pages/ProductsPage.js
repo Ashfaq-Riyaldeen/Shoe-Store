@@ -70,7 +70,7 @@ const ProductsPage = () => {
             <div className='m-8'>
                 <h1 className='text-5xl ml-8 font-bold text-center'>Our Products</h1>
                 <div className="m-auto lg:-mt-8 w-[92%]">
-                    <div className='flex flex-col md:flex-row justify-end items-center md:mx-8 my-4 lg:mb-4'>
+                    <div className='flex flex-col md:flex-row justify-center items-center md:mx-8 my-16 lg:mb-4'>
                         <div className='flex items-center mx-4'>
                             <label htmlFor='sort'>Sort by:</label>
                             <select id='sort' value={sortOption} onChange={handleSortChange} className='ml-2 p-1 border border-gray-300 rounded'>
