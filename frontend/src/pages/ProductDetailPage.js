@@ -99,13 +99,36 @@ const ProductDetailPage = () => {
                         <div className="w-11/12 lg:w-1/2 pl-8 flex flex-col justify-center">
                             <h1 className="text-3xl font-bold mb-4">{productDetails.name}</h1>
                             <p className="text-gray-600 mb-4">{productDetails.description}</p>
-                            <p className="text-2xl font-bold text-orange-500">Rs {productDetails.price}</p>
-                            {productDetails.quantity < 4 ? (
-                                <p className="text-red-500">Hurry Up! Only few left in stock.</p>)
-                                : (
-                                    <p></p>
-                                )}
-                            {/* <div>
+                            
+                            <div className="mb-4">
+                            <p className="font-bold text-lg">Available Sizes:</p>
+                            <div className="flex space-x-4 text-lg"> {/* Align items in a row */}
+                                { [5, 6, 7, 8, 9, 10].map((siz) => (
+                                    <div key={siz} className="flex  items-center pt-2">
+                                        <input 
+                                            type="radio" 
+                                            id={`size-${siz}`} 
+                                            name="sizes" 
+                                            value={siz} 
+                                            className="mr-2 "
+                                        />
+                                        <label htmlFor={`size-${siz}`}>{siz}</label>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div>
+                        <p className="text-2xl inline font-bold text-black ">Price : </p>
+                        <p className="text-2xl inline font-bold text-orange-500">Rs {productDetails.price}</p>
+
+                        </div>
+                       
+                        {productDetails.quantity < 4 ? (
+                             <p className="text-red-500">Hurry Up! Only few left in stock.</p>)
+                             : (
+                                  <p></p>
+                             )}
+                         {/* <div>
                                 <label htmlFor="size" className="block text-sm font-medium text-gray-700">Size</label>
                                 <select
                                     name="size"
@@ -118,7 +141,7 @@ const ProductDetailPage = () => {
                                     ))}
                                 </select>
                             </div> */}
-                            <div className='butBtn mt-4'>
+                            <div className='butBtn pt-2 mt-4'>
                                 <button className='bg-black rounded-2xl px-6 py-2 text-white'
                                     onClick={() => { buyNowHandler(productId, productDetails) }}>
                                     Buy Now

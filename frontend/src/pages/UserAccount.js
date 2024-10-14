@@ -124,7 +124,7 @@ const UserAccount = () => {
 
                 {!loading && userOrders.length > 0 ? (
                     <div>
-                        <h2 className="text-2xl font-semibold my-8">Order History</h2>
+                        <h2 className="flex text-3xl justify-center font-semibold my-8">Order History</h2>
                         <table className="min-w-full divide-y divide-gray-200">
                             <thead className="bg-gray-50">
                                 <tr>
@@ -142,7 +142,7 @@ const UserAccount = () => {
                                         <td className="px-6 py-4 whitespace-nowrap">{new Date(order.order_date).toLocaleString()}</td>
                                         <td className="px-6 py-4 whitespace-nowrap">{order.products.length}</td>
                                         <td className="px-6 py-4 whitespace-nowrap">{order.order_status}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap">₹{order.total_amount}</td>
+                                        <td className="px-6 py-4 whitespace-nowrap">Rs {order.total_amount}</td>
                                     </tr>
                                 ))}
                             </tbody>

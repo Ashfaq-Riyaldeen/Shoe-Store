@@ -20,7 +20,7 @@ const PopularProducts = ( { heading } ) => {
 
     // displaying only 4 random products out of total
     const shuffledProducts = products.slice().sort(() => Math.random() - 0.5);
-    const randomProducts = shuffledProducts.slice(0, 4);
+    const randomProducts = shuffledProducts.slice(0, 6);
 
     return (
         <div className='m-8 mt-16'>
