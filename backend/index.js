@@ -13,6 +13,11 @@ const reviewRoute = require("./routes/reviewRoutes");
 
 const port = 8080;
 
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' https://vercel.live; img-src 'self'; style-src 'self'");
+    next();
+});
+
 app.use(express.json());
 
 // Add url-encoded middleware
