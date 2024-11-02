@@ -19,5 +19,6 @@
     "mongoose": "^8.2.0",
     "react-router-dom": "^6.21.2",
     "use-history": "^1.4.1"
-  }
+  },
+  "proxy": "https://shoe-store-backend-five.vercel.app"
 }

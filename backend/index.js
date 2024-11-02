@@ -27,6 +27,8 @@ const allowedOrigins = ['http://localhost:8080',
                         'https://urbankicks.netlify.app'
                     ];
 
+app.use(cors({ origin: 'http://localhost:3000' }));
+
 const corsOptions = {
     origin: (origin, callback) => {
         // Check if the origin is in the allowedOrigins array or if it's undefined (e.g., a same-origin request)
@@ -55,3 +57,7 @@ app.use("/reviews", reviewRoute);
 app.listen(port, () => {
     console.log(`App server is listening on port: ${port}`);
 });
+
+app.get('/products', (req, res) => {
+    res.json({ message: 'CORS enabled' });
+  });
