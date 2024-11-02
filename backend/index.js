@@ -20,14 +20,18 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 
-const allowedOrigins = ['http://localhost:8080', 
-                        'http://localhost:3000', 
-                        'https://urbankicks.onrender.com', 
-                        'https://urbankicksatserver.onrender.com', 
-                        'https://urbankicks.netlify.app'
-                    ];
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+                    
+app.use(cors());
+
+// Specify allowed origins if needed
+// app.use(cors({ origin: 'http://localhost:3000' }));
+
+
+
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
 
 const corsOptions = {
     origin: (origin, callback) => {
