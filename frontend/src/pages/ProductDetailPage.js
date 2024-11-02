@@ -12,6 +12,7 @@ import PopularProducts from '../components/PopularProducts';
 const ProductDetailPage = () => {
     const { productId } = useParams();
     const [productDetails, setProductDetails] = useState(null);
+    const [selectedSize, setSelectedSize] = useState(null);  // State for selected size
 
     useEffect(() => {
         const fetchProductDetails = async () => {
@@ -26,11 +27,27 @@ const ProductDetailPage = () => {
         fetchProductDetails();
     }, [productId]);
 
+    const handleSizeChange = (e) => {
+        setSelectedSize(e.target.value);  // Update selected size
+    };
+
     const buyNowHandler = async (productId, product) => {
+        if (!selectedSize) {
+            toast.error('Please select a size before placing the order.', {
+                position: 'bottom-right',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+            });
+            return;
+        }
+
         try {
             const orderData = {
                 userId: localStorage.getItem('userId'),
-                products: [{ product_id: productId, quantity: 1 }],
+                products: [{ product_id: productId, quantity: 1, size: selectedSize }],
                 total_amount: product.price
             };
             const response = await orderApi.createOrder(orderData);
@@ -51,10 +68,21 @@ const ProductDetailPage = () => {
             console.error('Error placing order:', error);
             toast.error('An error occurred. Please try again.', { position: 'bottom-right' });
         }
-    }
-    
+    };
 
     const addCartHandler = async (product) => {
+        if (!selectedSize) {
+            toast.error('Please select a size before adding to cart.', {
+                position: 'bottom-right',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+            });
+            return;
+        }
+
         try {
             const userEmail = localStorage.getItem('userEmail');
             const userResponse = await userApi.getUserDetails({ userEmail });
@@ -101,49 +129,36 @@ const ProductDetailPage = () => {
                             <p className="text-gray-600 mb-4">{productDetails.description}</p>
                             
                             <div className="mb-4">
-                            <p className="font-bold text-lg">Available Sizes:</p>
-                            <div className="flex space-x-4 text-lg"> {/* Align items in a row */}
-                                { [5, 6, 7, 8, 9, 10].map((siz) => (
-                                    <div key={siz} className="flex  items-center pt-2">
-                                        <input 
-                                            type="radio" 
-                                            id={`size-${siz}`} 
-                                            name="sizes" 
-                                            value={siz} 
-                                            className="mr-2 "
-                                        />
-                                        <label htmlFor={`size-${siz}`}>{siz}</label>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div>
-                        <p className="text-2xl inline font-bold text-black ">Price : </p>
-                        <p className="text-2xl inline font-bold text-orange-500">Rs {productDetails.price}</p>
-
-                        </div>
-                       
-                        {productDetails.quantity < 4 ? (
-                             <p className="text-red-500">Hurry Up! Only few left in stock.</p>)
-                             : (
-                                  <p></p>
-                             )}
-                         {/* <div>
-                                <label htmlFor="size" className="block text-sm font-medium text-gray-700">Size</label>
-                                <select
-                                    name="size"
-                                    id="size"
-                                    className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                                >
-                                    <option value=""></option>
-                                    {productDetails.size.map((sizeOption, index) => (
-                                        <option key={index} value={sizeOption}>{sizeOption}</option>
+                                <p className="font-bold text-lg">Available Sizes:</p>
+                                <div className="flex space-x-4 text-lg">
+                                    { [5, 6, 7, 8, 9, 10].map((siz) => (
+                                        <div key={siz} className="flex items-center pt-2">
+                                            <input 
+                                                type="radio" 
+                                                id={`size-${siz}`} 
+                                                name="sizes" 
+                                                value={siz} 
+                                                className="mr-2"
+                                                onChange={handleSizeChange}  // Call size change handler
+                                            />
+                                            <label htmlFor={`size-${siz}`}>{siz}</label>
+                                        </div>
                                     ))}
-                                </select>
-                            </div> */}
+                                </div>
+                            </div>
+                            <div>
+                                <p className="text-2xl inline font-bold text-black">Price : </p>
+                                <p className="text-2xl inline font-bold text-orange-500">Rs {productDetails.price}</p>
+                            </div>
+                           
+                            {productDetails.quantity < 4 ? (
+                                <p className="text-red-500">Hurry Up! Only few left in stock.</p>
+                            ) : (
+                                <p></p>
+                            )}
                             <div className='butBtn pt-2 mt-4'>
                                 <button className='bg-black rounded-2xl px-6 py-2 text-white'
-                                    onClick={() => { buyNowHandler(productId, productDetails) }}>
+                                    onClick={() => buyNowHandler(productId, productDetails)}>
                                     Buy Now
                                 </button>
                                 <button
